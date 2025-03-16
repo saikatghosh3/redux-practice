@@ -1,18 +1,9 @@
-import React, { useState } from 'react';
+
 import Count from './Count';
 import Button from './Button';  // ✅ Import Button component
 
-const Counter = () => {
-  // ✅ Set initial count to 0
-  const [count, setCount] = useState(0);
-
-  const handleIncrement = () => {
-    setCount((prevCount) => prevCount + 1);
-  };
-
-  const handleDecrement = () => {
-    setCount((prevCount) => prevCount - 1);
-  };
+const Counter = ({count, onIncrement, onDecrement}) => {
+ 
 
   return (
     <div>
@@ -24,8 +15,8 @@ const Counter = () => {
 
         <div className="flex space-x-3">
           {/* Pass handler function to Button */}
-          <Button handler={handleIncrement}>Increment</Button>
-          <Button type="danger" handler={handleDecrement}>
+          <Button handler={onIncrement}>Increment</Button>
+          <Button type="danger" handler={onDecrement}>
             Decrement
           </Button>
         </div>
